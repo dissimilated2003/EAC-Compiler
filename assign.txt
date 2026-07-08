@@ -1,0 +1,2 @@
+Name %FIRSTNAME%
+CurrentYear %FOOTER_CURRENT_YEAR%
