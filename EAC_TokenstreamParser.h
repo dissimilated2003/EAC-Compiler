@@ -252,6 +252,20 @@ private:
                 std::string author = content.substr(pipePos + 1);
                 AddNode(std::make_unique<ReviewNode>(reviewText, author, m_themeColor));
             }
+            else
+            {
+                size_t colonPos = content.find_last_of(':');
+                if (colonPos != std::string::npos)
+                {
+                    std::string reviewText = content.substr(0, colonPos);
+                    std::string author = content.substr(colonPos + 1);
+                    AddNode(std::make_unique<ReviewNode>(reviewText, author, m_themeColor));
+                }
+                else
+                {
+                    AddNode(std::make_unique<ReviewNode>(content, "", m_themeColor));
+                }
+            }
             return;
         }
     }
